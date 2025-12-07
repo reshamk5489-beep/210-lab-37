@@ -31,6 +31,7 @@ int main()
 
     bool isExit = false;
     int choice;
+    string searchKey;
 
     // Comment #6: Menu loop
     while (!isExit) 
@@ -47,11 +48,39 @@ int main()
             case 1:
                 print_hash_table(hash_table);
                 break;
-            case 6:
+            case 2:
+                {
+                    cout << "Please enter a search key: ";
+                    cin >> searchKey;
+                    int hashIndex = gen_hash_index(searchKey);
+                    auto &list = hash_table[hashIndex];
+                    bool found = false;
+
+                    for (const auto &str : list) 
+                    {
+                        if (str == searchKey) 
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (found) 
+                    {
+                        cout << "Key '" << searchKey << "' found in the hash table." << endl;
+                    } 
+                    else 
+                    {
+                        cout << "Key '" << searchKey << "' not found in the hash table." << endl;
+                    }
+
+                    cout << endl;
+                }
+                break;
+
+            default:
                 isExit = true;
                 break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
         }
     }
 
@@ -101,7 +130,7 @@ void print_menu()
 {
     cout << "Menu Options:" << endl;
     cout << "1. Print Hash Table" << endl;
-    cout << "6. Exit" << endl;
+    cout << "2. Search for a Key" << endl;
 }
 
 // Milestone 1
