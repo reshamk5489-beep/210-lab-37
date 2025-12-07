@@ -32,18 +32,23 @@ int main()
     bool isExit = false;
     int choice;
 
+    // Comment #6: Menu loop
     while (!isExit) 
     {
+        // Comment #7: Display menu options
         print_menu();
 
         cout << "Enter your choice: ";
         cin >> choice;
+
+        // Comment #8: Handle user choice
         switch (choice) 
         {
             case 1:
                 print_hash_table(hash_table);
                 break;
             case 6:
+                isExit = true;
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
@@ -70,10 +75,10 @@ void print_hash_table(map<int, list<string>> &hash_table)
 {
     int count = 0;
 
-    // Comment #6: Print the first 100 entries of the hash table
+    // Comment #11: Print the first 100 entries of the hash table
     for (auto &p : hash_table) 
     {
-        // Comment #7: Limit output to first 100 entries
+        // Comment #12: Limit output to first 100 entries
         if (count >= 100) 
         {
             break;
@@ -81,7 +86,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
 
         cout << "Index " << p.first << endl;
 
-        // Comment #8: Print all strings stored at this hash index
+        // Comment #13: Print all strings stored at this hash index
         for (auto &s : p.second) 
         {
             cout << "\t" << s << endl;
@@ -91,6 +96,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
     }
 }
 
+// Comment #14: Function definition for print_menu
 void print_menu()
 {
     cout << "Menu Options:" << endl;
