@@ -27,6 +27,23 @@ int main()
 
     file.close();
 
+    int count = 0;
+    for (auto &p : hash_table) 
+    {
+        if (count >= 100) 
+        {
+            break;
+        }
+
+        cout << "Index " << p.first << endl;
+        for (auto &s : p.second) 
+        {
+            cout << "\t" << s << endl;
+        }
+
+        count++;
+    }
+
     return 0;
 }
 
@@ -40,5 +57,5 @@ int gen_hash_index(string str)
         sum += (int) c;
     }
     
-    return sum;
+    return sum % 1000;
 }
