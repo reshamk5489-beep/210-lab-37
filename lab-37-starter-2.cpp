@@ -52,10 +52,15 @@ int main()
                 {
                     cout << "Please enter a search key: ";
                     cin >> searchKey;
+
+                    // Comment #9: Search for the key in the hash table
                     int hashIndex = gen_hash_index(searchKey);
+
+                    // Comment #10: Check if the key exists in the list at the computed hash index
                     auto &list = hash_table[hashIndex];
                     bool found = false;
 
+                    // Comment #11: Iterate through the list to find the search key
                     for (const auto &str : list) 
                     {
                         if (str == searchKey) 
@@ -87,13 +92,13 @@ int main()
     return 0;
 }
 
-// Comment #9: Function definition for gen_hash_index
+// Comment #12: Function definition for gen_hash_index
 int gen_hash_index(string str)
 {
     int sum = 0;
     for (char c : str) 
     {
-        // Comment #10: Add the ASCII value of each character to sum
+        // Comment #13: Add the ASCII value of each character to sum
         sum += (int) c;
     }
     
@@ -104,10 +109,10 @@ void print_hash_table(map<int, list<string>> &hash_table)
 {
     int count = 0;
 
-    // Comment #11: Print the first 100 entries of the hash table
+    // Comment #14: Print the first 100 entries of the hash table
     for (auto &p : hash_table) 
     {
-        // Comment #12: Limit output to first 100 entries
+        // Comment #15: Limit output to first 100 entries
         if (count >= 100) 
         {
             break;
@@ -115,7 +120,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
 
         cout << "Index " << p.first << endl;
 
-        // Comment #13: Print all strings stored at this hash index
+        // Comment #16: Print all strings stored at this hash index
         for (auto &s : p.second) 
         {
             cout << "\t" << s << endl;
@@ -125,7 +130,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
     }
 }
 
-// Comment #14: Function definition for print_menu
+// Comment #17: Function definition for print_menu
 void print_menu()
 {
     cout << "Menu Options:" << endl;
@@ -133,4 +138,4 @@ void print_menu()
     cout << "2. Search for a Key" << endl;
 }
 
-// Milestone 1
+// Milestone 2
