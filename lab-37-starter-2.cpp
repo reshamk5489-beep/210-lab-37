@@ -28,14 +28,19 @@ int main()
     file.close();
 
     int count = 0;
+
+    // Comment #6: Print the first 100 entries of the hash table
     for (auto &p : hash_table) 
     {
+        // Comment #7: Limit output to first 100 entries
         if (count >= 100) 
         {
             break;
         }
 
         cout << "Index " << p.first << endl;
+
+        // Comment #8: Print all strings stored at this hash index
         for (auto &s : p.second) 
         {
             cout << "\t" << s << endl;
@@ -47,15 +52,17 @@ int main()
     return 0;
 }
 
-// Comment #6: Function definition for gen_hash_index
+// Comment #9: Function definition for gen_hash_index
 int gen_hash_index(string str)
 {
     int sum = 0;
     for (char c : str) 
     {
-        // Comment #7: Add the ASCII value of each character to sum
+        // Comment #10: Add the ASCII value of each character to sum
         sum += (int) c;
     }
     
     return sum % 1000;
 }
+
+// Milestone 3
