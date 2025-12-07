@@ -145,7 +145,8 @@ int main()
                 }
                 break;
 
-            default:
+            case 6:
+                // Comment #17: Exit the program
                 isExit = true;
                 break;
         }
@@ -154,13 +155,13 @@ int main()
     return 0;
 }
 
-// Comment #17: Function definition for gen_hash_index
+// Comment #18: Function definition for gen_hash_index
 int gen_hash_index(string str)
 {
     int sum = 0;
     for (char c : str) 
     {
-        // Comment #18: Add the ASCII value of each character to sum
+        // Comment #19: Add the ASCII value of each character to sum
         sum += (int) c;
     }
     
@@ -171,10 +172,10 @@ void print_hash_table(map<int, list<string>> &hash_table)
 {
     int count = 0;
 
-    // Comment #19: Print the first 100 entries of the hash table
+    // Comment #20: Print the first 100 entries of the hash table
     for (auto &p : hash_table) 
     {
-        // Comment #20: Limit output to first 100 entries
+        // Comment #21: Limit output to first 100 entries
         if (count >= 100) 
         {
             break;
@@ -182,7 +183,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
 
         cout << "Index " << p.first << endl;
 
-        // Comment #21: Print all strings stored at this hash index
+        // Comment #22: Print all strings stored at this hash index
         for (auto &s : p.second) 
         {
             cout << "\t" << s << endl;
@@ -192,7 +193,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
     }
 }
 
-// Comment #22: Function definition for print_menu
+// Comment #23: Function definition for print_menu
 void print_menu()
 {
     cout << "Menu Options:" << endl;
@@ -201,6 +202,5 @@ void print_menu()
     cout << "3. Add a Key" << endl;
     cout << "4. Remove a Key" << endl;
     cout << "5. Modify a Key" << endl;
+    cout << "6. Exit" << endl;
 }
-
-// Milestone 5
