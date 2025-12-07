@@ -103,3 +103,5 @@ void print_menu()
     cout << "1. Print Hash Table" << endl;
     cout << "6. Exit" << endl;
 }
+
+// Milestone 1
