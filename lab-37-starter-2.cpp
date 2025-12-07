@@ -31,7 +31,7 @@ int main()
 
     bool isExit = false;
     int choice;
-    string searchKey;
+    string key;
 
     // Comment #6: Menu loop
     while (!isExit) 
@@ -51,10 +51,10 @@ int main()
             case 2:
                 {
                     cout << "Please enter a search key: ";
-                    cin >> searchKey;
+                    cin >> key;
 
                     // Comment #9: Search for the key in the hash table
-                    int hashIndex = gen_hash_index(searchKey);
+                    int hashIndex = gen_hash_index(key);
 
                     // Comment #10: Check if the key exists in the list at the computed hash index
                     auto &list = hash_table[hashIndex];
@@ -63,7 +63,7 @@ int main()
                     // Comment #11: Iterate through the list to find the search key
                     for (const auto &str : list) 
                     {
-                        if (str == searchKey) 
+                        if (str == key) 
                         {
                             found = true;
                             break;
@@ -72,14 +72,26 @@ int main()
 
                     if (found) 
                     {
-                        cout << "Key '" << searchKey << "' found in the hash table." << endl;
+                        cout << "Key '" << key << "' found in the hash table." << endl;
                     } 
                     else 
                     {
-                        cout << "Key '" << searchKey << "' not found in the hash table." << endl;
+                        cout << "Key '" << key << "' not found in the hash table." << endl;
                     }
 
                     cout << endl;
+                }
+                break;
+            case 3:
+                {
+                    cout << "Please enter a key to add: ";
+                    cin >> key;
+
+                    // Comment #12: Add the new key to the hash table
+                    int hashIndex = gen_hash_index(key);
+                    hash_table[hashIndex].push_back(key);
+
+                    cout << "Key '" << key << "' added to the hash table." << endl << endl;
                 }
                 break;
 
@@ -92,13 +104,13 @@ int main()
     return 0;
 }
 
-// Comment #12: Function definition for gen_hash_index
+// Comment #13: Function definition for gen_hash_index
 int gen_hash_index(string str)
 {
     int sum = 0;
     for (char c : str) 
     {
-        // Comment #13: Add the ASCII value of each character to sum
+        // Comment #14: Add the ASCII value of each character to sum
         sum += (int) c;
     }
     
@@ -109,10 +121,10 @@ void print_hash_table(map<int, list<string>> &hash_table)
 {
     int count = 0;
 
-    // Comment #14: Print the first 100 entries of the hash table
+    // Comment #15: Print the first 100 entries of the hash table
     for (auto &p : hash_table) 
     {
-        // Comment #15: Limit output to first 100 entries
+        // Comment #16: Limit output to first 100 entries
         if (count >= 100) 
         {
             break;
@@ -120,7 +132,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
 
         cout << "Index " << p.first << endl;
 
-        // Comment #16: Print all strings stored at this hash index
+        // Comment #17: Print all strings stored at this hash index
         for (auto &s : p.second) 
         {
             cout << "\t" << s << endl;
@@ -130,12 +142,11 @@ void print_hash_table(map<int, list<string>> &hash_table)
     }
 }
 
-// Comment #17: Function definition for print_menu
+// Comment #18: Function definition for print_menu
 void print_menu()
 {
     cout << "Menu Options:" << endl;
     cout << "1. Print Hash Table" << endl;
     cout << "2. Search for a Key" << endl;
+    cout << "3. Add a Key" << endl;
 }
-
-// Milestone 2
