@@ -94,6 +94,20 @@ int main()
                     cout << "Key '" << key << "' added to the hash table." << endl << endl;
                 }
                 break;
+            case 4:
+                {
+                    cout << "Please enter a key to remove: ";
+                    cin >> key;
+
+                    // Remove the key from the hash table
+                    int hashIndex = gen_hash_index(key);
+                    auto &list = hash_table[hashIndex];
+                    auto it = find(list.begin(), list.end(), key);
+
+                    list.erase(it);
+                    cout << "Key '" << key << "' removed from the hash table." << endl << endl;
+                }
+                break;
 
             default:
                 isExit = true;
@@ -149,6 +163,7 @@ void print_menu()
     cout << "1. Print Hash Table" << endl;
     cout << "2. Search for a Key" << endl;
     cout << "3. Add a Key" << endl;
+    cout << "4. Remove a Key" << endl;
 }
 
 // Milestone 3
