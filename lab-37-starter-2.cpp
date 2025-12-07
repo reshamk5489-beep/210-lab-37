@@ -7,6 +7,8 @@ using namespace std;
 
 // Comment #1: Function prototype for gen_hash_index
 int gen_hash_index(string str);
+void print_hash_table(map<int, list<string>> &hash_table);
+void print_menu();
 
 int main() 
 {
@@ -27,6 +29,45 @@ int main()
 
     file.close();
 
+    bool isExit = false;
+    int choice;
+
+    while (!isExit) 
+    {
+        print_menu();
+
+        cout << "Enter your choice: ";
+        cin >> choice;
+        switch (choice) 
+        {
+            case 1:
+                print_hash_table(hash_table);
+                break;
+            case 6:
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    }
+
+    return 0;
+}
+
+// Comment #9: Function definition for gen_hash_index
+int gen_hash_index(string str)
+{
+    int sum = 0;
+    for (char c : str) 
+    {
+        // Comment #10: Add the ASCII value of each character to sum
+        sum += (int) c;
+    }
+    
+    return sum % 1000;
+}
+
+void print_hash_table(map<int, list<string>> &hash_table)
+{
     int count = 0;
 
     // Comment #6: Print the first 100 entries of the hash table
@@ -48,21 +89,11 @@ int main()
 
         count++;
     }
-
-    return 0;
 }
 
-// Comment #9: Function definition for gen_hash_index
-int gen_hash_index(string str)
+void print_menu()
 {
-    int sum = 0;
-    for (char c : str) 
-    {
-        // Comment #10: Add the ASCII value of each character to sum
-        sum += (int) c;
-    }
-    
-    return sum % 1000;
+    cout << "Menu Options:" << endl;
+    cout << "1. Print Hash Table" << endl;
+    cout << "6. Exit" << endl;
 }
-
-// Milestone 3
