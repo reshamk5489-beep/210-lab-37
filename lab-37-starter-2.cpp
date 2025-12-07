@@ -13,7 +13,7 @@ int main()
 
 int sum_ascii(string str)
 {
-    int sum;
+    int sum = 0;
     for (char c : str) 
     {
         sum += (int) c;
