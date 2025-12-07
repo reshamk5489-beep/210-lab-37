@@ -134,9 +134,7 @@ int main()
                     {
                         // Comment #16: Remove the old key and add the new key
                         oldList.erase(it);
-                        cout << "Key '" << key << "' removed from the hash table." << endl;
                         int newHashIndex = gen_hash_index(newKey);
-                        cout << "Adding new key '" << newKey << "' to the hash table." << endl;
                         hash_table[newHashIndex].push_back(newKey);
                         cout << "Key '" << key << "' modified to '" << newKey << "' in the hash table." << endl << endl;
                     }
@@ -204,3 +202,5 @@ void print_menu()
     cout << "4. Remove a Key" << endl;
     cout << "5. Modify a Key" << endl;
 }
+
+// Milestone 5
