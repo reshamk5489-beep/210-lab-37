@@ -15,7 +15,6 @@ int main()
     // Comment #3: Read each line from the file and calculate the ASCII sum
     while (getline(file, line)) 
     {
-        cout << sum << endl; // debugging output
         sum += sum_ascii(line);
     }
 
@@ -39,3 +38,5 @@ int sum_ascii(string str)
     
     return sum;
 }
+
+// Milestone 2
