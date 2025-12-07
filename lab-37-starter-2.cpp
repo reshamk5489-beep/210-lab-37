@@ -116,6 +116,33 @@ int main()
                     }
                 }
                 break;
+            case 5:
+                {
+                    cout << "Please enter the key to modify: ";
+                    cin >> key;
+
+                    cout << "Please enter the new key: ";
+                    string newKey;
+                    cin >> newKey;
+
+                    // Modify the key in the hash table
+                    int oldHashIndex = gen_hash_index(key);
+                    auto &oldList = hash_table[oldHashIndex];
+                    auto it = find(oldList.begin(), oldList.end(), key);
+
+                    if (it != oldList.end())
+                    {
+                        oldList.erase(it);
+                        int newHashIndex = gen_hash_index(key);
+                        hash_table[newHashIndex].push_back(newKey);
+                        cout << "Key '" << key << "' modified to '" << newKey << "' in the hash table." << endl << endl;
+                    }
+                    else
+                    {
+                        cout << "Key '" << key << "' not found in the hash table." << endl << endl;
+                    }
+                }
+                break;
 
             default:
                 isExit = true;
@@ -172,6 +199,5 @@ void print_menu()
     cout << "2. Search for a Key" << endl;
     cout << "3. Add a Key" << endl;
     cout << "4. Remove a Key" << endl;
+    cout << "5. Modify a Key" << endl;
 }
-
-// Milestone 4
