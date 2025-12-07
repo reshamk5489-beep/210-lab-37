@@ -99,13 +99,21 @@ int main()
                     cout << "Please enter a key to remove: ";
                     cin >> key;
 
-                    // Remove the key from the hash table
+                    // Comment #13: Remove the key from the hash table
                     int hashIndex = gen_hash_index(key);
                     auto &list = hash_table[hashIndex];
                     auto it = find(list.begin(), list.end(), key);
 
-                    list.erase(it);
-                    cout << "Key '" << key << "' removed from the hash table." << endl << endl;
+                    // Comment #14: Check if the key was found and remove it
+                    if (it != list.end())
+                    {
+                        list.erase(it);
+                        cout << "Key '" << key << "' removed from the hash table." << endl << endl;
+                    }
+                    else
+                    {
+                        cout << "Key '" << key << "' not found in the hash table." << endl << endl;
+                    }
                 }
                 break;
 
@@ -118,13 +126,13 @@ int main()
     return 0;
 }
 
-// Comment #13: Function definition for gen_hash_index
+// Comment #15: Function definition for gen_hash_index
 int gen_hash_index(string str)
 {
     int sum = 0;
     for (char c : str) 
     {
-        // Comment #14: Add the ASCII value of each character to sum
+        // Comment #16: Add the ASCII value of each character to sum
         sum += (int) c;
     }
     
@@ -135,10 +143,10 @@ void print_hash_table(map<int, list<string>> &hash_table)
 {
     int count = 0;
 
-    // Comment #15: Print the first 100 entries of the hash table
+    // Comment #17: Print the first 100 entries of the hash table
     for (auto &p : hash_table) 
     {
-        // Comment #16: Limit output to first 100 entries
+        // Comment #18: Limit output to first 100 entries
         if (count >= 100) 
         {
             break;
@@ -146,7 +154,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
 
         cout << "Index " << p.first << endl;
 
-        // Comment #17: Print all strings stored at this hash index
+        // Comment #19: Print all strings stored at this hash index
         for (auto &s : p.second) 
         {
             cout << "\t" << s << endl;
@@ -156,7 +164,7 @@ void print_hash_table(map<int, list<string>> &hash_table)
     }
 }
 
-// Comment #18: Function definition for print_menu
+// Comment #20: Function definition for print_menu
 void print_menu()
 {
     cout << "Menu Options:" << endl;
@@ -165,5 +173,3 @@ void print_menu()
     cout << "3. Add a Key" << endl;
     cout << "4. Remove a Key" << endl;
 }
-
-// Milestone 3
